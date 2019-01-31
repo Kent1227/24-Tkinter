@@ -22,33 +22,38 @@ def main():
     # DONE: 3. After reading and understanding the m2e module,
     #   ** put a Frame on the window. **
     # -------------------------------------------------------------------------
-    frame1 = ttk.Frame(window, padding=10)
+    frame1 = ttk.Frame(window, padding=100)
     frame1.grid()
 
     # -------------------------------------------------------------------------
     # DONE: 4. After reading and understanding the m2e module,
     #   ** put a Button on the Frame. **
     # -------------------------------------------------------------------------
-    go_forward_button = ttk.Button(frame1, text='Hello')
-    go_forward_button.grid()
+    button = ttk.Button(frame1, text='Hello')
+    button.grid()
 
     # -------------------------------------------------------------------------
-    # TODO: 5. After reading and understanding the m3e module,
+    # DONE: 5. After reading and understanding the m3e module,
     #   ** make your Button respond to a button-press **
     #   ** by printing   "Hello"  on the Console.     **
     # -------------------------------------------------------------------------
-
+    button['command'] = (lambda: print('Hello there.'))
     # -------------------------------------------------------------------------
-    # TODO: 6. After reading and understanding the m4e module,
+    # DONE: 6. After reading and understanding the m4e module,
     #   -- Put an Entry box on the Frame.
     #   -- Put a second Button on the Frame.
     #   -- Make this new Button, when pressed, print "Hello"
     #        on the Console if the current string in the Entry box
     #        is the string 'ok', but print "Goodbye" otherwise.
     # -------------------------------------------------------------------------
+    entry_box = ttk.Entry(frame1)
+    entry_box.grid()
 
+    entry_button = ttk.Button(frame1, text='Print')
+    entry_button.grid()
+    entry_button['command'] = (lambda: print_entry_box(entry_box))
     # -------------------------------------------------------------------------
-    # TODO: 7.
+    # DONE: 7.
     #    -- Put a second Entry on the Frame.
     #    -- Put a third Button on the frame.
     #    -- Make this new Button respond to a button-press as follows:
@@ -70,6 +75,12 @@ def main():
     #      s = entry_box.get()
     #      n = int(s)
     ####################################################################
+    entry_box2 = ttk.Entry(frame1)
+    entry_box2.grid()
+
+    button2 = ttk.Button(frame1, text='Print2')
+    button2.grid()
+    button2['command'] = (lambda: print_string(entry_box, entry_box2))
 
     # -------------------------------------------------------------------------
     # TODO: 8. As time permits, do other interesting GUI things!
@@ -79,4 +90,21 @@ def main():
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
 # -----------------------------------------------------------------------------
+
+
+def print_entry_box(entry_box):
+    contents = entry_box.get()
+    if contents == 'ok':
+        print('Hello')
+    else:
+        print('Goodbye')
+
+
+def print_string(entry_box1, entry_box2):
+    contents = entry_box2.get()
+    n = int(contents)
+    for _ in range(n):
+        print(entry_box1.get())
+
+
 main()
