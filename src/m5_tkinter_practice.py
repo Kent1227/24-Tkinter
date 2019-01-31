@@ -83,7 +83,7 @@ def main():
     button2['command'] = (lambda: print_string(entry_box, entry_box2))
 
     # -------------------------------------------------------------------------
-    # TODO: 8. As time permits, do other interesting GUI things!
+    # DONE: 8. As time permits, do other interesting GUI things!
     # -------------------------------------------------------------------------
     window.mainloop()
 
