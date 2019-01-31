@@ -17,7 +17,7 @@ def main():
     #   ** make a window that shows up. **
     # -------------------------------------------------------------------------
     window = tkinter.Tk()
-
+    window.geometry('1500x700')
     # -------------------------------------------------------------------------
     # DONE: 3. After reading and understanding the m2e module,
     #   ** put a Frame on the window. **
