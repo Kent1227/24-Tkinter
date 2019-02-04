@@ -19,8 +19,9 @@ def main():
 
     root = tkinter.Tk()
     root.title("MQTT Remote")
+    root.geometry("300x500")
 
-    main_frame = ttk.Frame(root, padding=20)
+    main_frame = ttk.Frame(root, padding=110)
     main_frame.grid()  # only grid call that does NOT need a row and column
 
     left_speed_label = ttk.Label(main_frame, text="Left")
